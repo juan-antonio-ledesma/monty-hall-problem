@@ -4,5 +4,5 @@ import { setCards } from '../components/card/cards'
 export default function Home() {
   console.log(setCards())
 
-  return <Card />
+  return <Card urlImage="./images/car.png" />
 }
