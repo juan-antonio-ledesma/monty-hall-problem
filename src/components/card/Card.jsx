@@ -1,8 +1,11 @@
+import PropTypes from 'prop-types'
+
 import Image from 'next/image'
+
 import carImage from '../../public/images/car.png'
 import goatImage from '../../public/images/goat.png'
 
-const Card = () => {
+const Card = ({ type }) => {
   return (
     <div className="card">
       <div className="card-inner">
@@ -10,11 +13,20 @@ const Card = () => {
           <div className="card-interrogationBadge">?</div>
         </div>
         <div className="card-back">
-          <Image src={goatImage} alt="car" width={100} height={100} />
+          <Image
+            src={type === 'goat' ? goatImage : carImage}
+            alt={type}
+            width={100}
+            height={100}
+          />
         </div>
       </div>
     </div>
   )
+}
+
+Card.propTypes = {
+  type: PropTypes.string.isRequired,
 }
 
 export default Card

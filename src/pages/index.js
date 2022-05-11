@@ -2,7 +2,13 @@ import Card from '../components/card/Card'
 import { setCards } from '../components/card/cards'
 
 export default function Home() {
-  console.log(setCards())
+  const cards = setCards()
 
-  return <Card urlImage="./images/car.png" />
+  return (
+    <div className="cards">
+      {cards.map((cardType, index) => {
+        return <Card key={`card-${index}`} type={cardType} />
+      })}
+    </div>
+  )
 }
