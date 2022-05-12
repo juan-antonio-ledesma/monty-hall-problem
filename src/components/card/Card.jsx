@@ -1,13 +1,18 @@
-import PropTypes from 'prop-types'
-
 import Image from 'next/image'
+
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import carImage from '../../public/images/car.png'
 import goatImage from '../../public/images/goat.png'
 
-const Card = ({ type }) => {
+const Card = ({ type, onClick, isSelected }) => {
+  const classes = cx('card', {
+    'is-selected': isSelected,
+  })
+
   return (
-    <div className="card">
+    <div className={classes} onClick={onClick}>
       <div className="card-inner">
         <div className="card-front">
           <div className="card-interrogationBadge">?</div>
@@ -15,9 +20,9 @@ const Card = ({ type }) => {
         <div className="card-back">
           <Image
             src={type === 'goat' ? goatImage : carImage}
-            alt={type}
-            width={100}
-            height={100}
+            alt="hola"
+            width={70}
+            height={70}
           />
         </div>
       </div>
@@ -27,6 +32,8 @@ const Card = ({ type }) => {
 
 Card.propTypes = {
   type: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  isSelected: PropTypes.bool,
 }
 
 export default Card
