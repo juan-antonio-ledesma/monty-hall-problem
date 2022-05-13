@@ -6,9 +6,10 @@ import cx from 'classnames'
 import carImage from '../../public/images/car.png'
 import goatImage from '../../public/images/goat.png'
 
-const Card = ({ type, onClick, isSelected }) => {
+const Card = ({ type, onClick, isSelected, isRevealed }) => {
   const classes = cx('card', {
     'is-selected': isSelected,
+    'is-revealed': isRevealed,
   })
 
   return (
@@ -34,6 +35,7 @@ Card.propTypes = {
   type: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   isSelected: PropTypes.bool,
+  isRevealed: PropTypes.bool,
 }
 
 export default Card
