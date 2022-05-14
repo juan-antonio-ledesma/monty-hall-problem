@@ -17,15 +17,21 @@
   position: relative;
   cursor: pointer;
 
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: solid orange 0;
+    border-radius: 10px;
+    transition: $fast-transition;
+  }
+
   &.is-selected {
     &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border: solid orange 5px;
       padding: 10px;
-      border-radius: 10px;
+      border-width: 5px;
     }
   }
 
