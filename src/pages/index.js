@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
-import Card from '../components/card/Card'
+import Cards from '../components/cards/Cards'
+import Card from '../components/cards/Card'
 
 export default function Home() {
   const [gameStarted, setGameStarted] = useState(false)
@@ -47,7 +48,7 @@ export default function Home() {
   }
 
   return (
-    <div className="cards">
+    <Cards isGameStarted={gameStarted}>
       {cards.map((card, index) => {
         return (
           <Card
@@ -59,6 +60,6 @@ export default function Home() {
           />
         )
       })}
-    </div>
+    </Cards>
   )
 }
