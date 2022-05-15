@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Cards from '../components/cards/Cards'
 import Card from '../components/cards/Card'
+import Decision from '../components/decision/Decision'
 
 export default function Home() {
   const [gameStarted, setGameStarted] = useState(false)
@@ -48,18 +49,21 @@ export default function Home() {
   }
 
   return (
-    <Cards isGameStarted={gameStarted}>
-      {cards.map((card, index) => {
-        return (
-          <Card
-            key={`card-${index}`}
-            type={card.type}
-            isSelected={card.isSelected}
-            isRevealed={card.isRevealed}
-            onClick={() => selectCard(index)}
-          />
-        )
-      })}
-    </Cards>
+    <>
+      <Cards isGameStarted={gameStarted}>
+        {cards.map((card, index) => {
+          return (
+            <Card
+              key={`card-${index}`}
+              type={card.type}
+              isSelected={card.isSelected}
+              isRevealed={card.isRevealed}
+              onClick={() => selectCard(index)}
+            />
+          )
+        })}
+      </Cards>
+      {gameStarted ? <Decision /> : null}
+    </>
   )
 }
