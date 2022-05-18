@@ -20,7 +20,7 @@ export default function Home() {
 
   const [cards, setCards] = useState(resetCards())
 
-  const selectCard = indexSelectedCard => {
+  const handleSelectCard = indexSelectedCard => {
     if (!gameStarted) {
       setGameStarted(true)
 
@@ -48,6 +48,24 @@ export default function Home() {
     }
   }
 
+  const handleKeepCard = () => {
+    setCards(previousCards => {
+      return previousCards.map(card => {
+        if (card.isSelected) {
+          setResult(getResult(card.type))
+          return { ...card, isRevealed: true }
+        }
+        return card
+      })
+    })
+  }
+
+  const [result, setResult] = useState('')
+
+  const getResult = choice => {
+    return choice === 'car' ? 'YOU WIN' : 'YOU LOSE'
+  }
+
   return (
     <>
       <Cards isGameStarted={gameStarted}>
@@ -58,12 +76,20 @@ export default function Home() {
               type={card.type}
               isSelected={card.isSelected}
               isRevealed={card.isRevealed}
-              onClick={() => selectCard(index)}
+              onClick={() => handleSelectCard(index)}
             />
           )
         })}
       </Cards>
-      {gameStarted ? <Decision /> : null}
+      {gameStarted ? (
+        <Decision
+          keepCard={handleKeepCard}
+          changeCard={() => {
+            console.log('Change Card')
+          }}
+        />
+      ) : null}
+      {result ? <p style={{ textAlign: 'center' }}>{result}</p> : null}
     </>
   )
 }
