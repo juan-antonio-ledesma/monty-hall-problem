@@ -60,6 +60,18 @@ export default function Home() {
     })
   }
 
+  const handleChangeCard = () => {
+    setCards(previousCards => {
+      return previousCards.map(card => {
+        if (!card.isSelected && !card.isRevealed) {
+          setResult(getResult(card.type))
+          return { ...card, isSelected: true, isRevealed: true }
+        }
+        return card
+      })
+    })
+  }
+
   const [result, setResult] = useState('')
 
   const getResult = choice => {
@@ -82,12 +94,7 @@ export default function Home() {
         })}
       </Cards>
       {gameStarted ? (
-        <Decision
-          keepCard={handleKeepCard}
-          changeCard={() => {
-            console.log('Change Card')
-          }}
-        />
+        <Decision keepCard={handleKeepCard} changeCard={handleChangeCard} />
       ) : null}
       {result ? <p style={{ textAlign: 'center' }}>{result}</p> : null}
     </>
