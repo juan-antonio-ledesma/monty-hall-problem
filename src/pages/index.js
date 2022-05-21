@@ -72,7 +72,7 @@ export default function Home() {
     })
   }
 
-  const [result, setResult] = useState('')
+  const [result, setResult] = useState(false)
 
   const getResult = choice => {
     return choice === 'car' ? 'YOU WIN' : 'YOU LOSE'
@@ -80,7 +80,7 @@ export default function Home() {
 
   return (
     <>
-      <Cards isGameStarted={gameStarted}>
+      <Cards isGameStarted={gameStarted} isResultShown={result}>
         {cards.map((card, index) => {
           return (
             <Card
