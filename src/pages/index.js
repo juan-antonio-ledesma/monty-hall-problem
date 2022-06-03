@@ -59,22 +59,23 @@ export default function Home() {
           return { ...card, isSelected: false, isRevealed: false }
         })
       })
-    }, 900)
+    }, 1000)
 
     setTimeout(() => {
       setCards(resetCards)
-      setResult(false)
-      setIsResultShown(false)
+      setResult({
+        resultValue: '',
+        isResultShown: false,
+      })
       setGameStarted(false)
-    }, 1300)
+    }, 1400)
   }
 
   const handleKeepCard = () => {
     setCards(previousCards => {
       return previousCards.map(card => {
         if (card.isSelected) {
-          setResult(getResult(card.type))
-          setIsResultShown(true)
+          setResult({ resultValue: getResult(card.type), isResultShown: true })
           return { ...card, isRevealed: true }
         }
         return card
@@ -87,8 +88,7 @@ export default function Home() {
     setCards(previousCards => {
       return previousCards.map(card => {
         if (!card.isSelected && !card.isRevealed) {
-          setResult(getResult(card.type))
-          setIsResultShown(true)
+          setResult({ resultValue: getResult(card.type), isResultShown: true })
           return { ...card, isSelected: true, isRevealed: true }
         }
         return card
@@ -97,8 +97,10 @@ export default function Home() {
     resetGame()
   }
 
-  const [isResultShown, setIsResultShown] = useState(false)
-  const [result, setResult] = useState(false)
+  const [result, setResult] = useState({
+    resultValue: '',
+    isResultShown: false,
+  })
 
   const getResult = choice => {
     return choice === 'car' ? 'YOU WIN' : 'YOU LOSE'
@@ -106,7 +108,7 @@ export default function Home() {
 
   return (
     <>
-      <Cards isGameStarted={gameStarted} isResultShown={isResultShown}>
+      <Cards isGameStarted={gameStarted} isResultShown={result.isResultShown}>
         {cards.map((card, index) => {
           return (
             <Card
@@ -119,10 +121,12 @@ export default function Home() {
           )
         })}
       </Cards>
-      {gameStarted && !result ? (
+      {gameStarted && !result.isResultShown ? (
         <Decision keepCard={handleKeepCard} changeCard={handleChangeCard} />
       ) : null}
-      {isResultShown ? <p style={{ textAlign: 'center' }}>{result}</p> : null}
+      {result.isResultShown ? (
+        <p style={{ textAlign: 'center' }}>{result.resultValue}</p>
+      ) : null}
     </>
   )
 }
