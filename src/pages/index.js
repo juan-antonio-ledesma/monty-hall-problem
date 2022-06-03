@@ -12,13 +12,17 @@ export default function Home() {
   }
 
   const resetCards = () => {
-    const cards = Array(3).fill({ type: 'goat' })
+    const cards = Array(3).fill({
+      isRevealed: false,
+      isSelected: false,
+      type: 'goat',
+    })
     cards[randomIntFromInterval(0, 2)] = { type: 'car' }
 
     return cards
   }
 
-  const [cards, setCards] = useState(resetCards())
+  const [cards, setCards] = useState(resetCards)
 
   const handleSelectCard = indexSelectedCard => {
     if (!gameStarted) {
@@ -48,16 +52,35 @@ export default function Home() {
     }
   }
 
+  const resetGame = () => {
+    setTimeout(() => {
+      setCards(previousCards => {
+        return previousCards.map(card => {
+          return { ...card, isSelected: false, isRevealed: false }
+        })
+      })
+    }, 900)
+
+    setTimeout(() => {
+      setCards(resetCards)
+      setResult(false)
+      setIsResultShown(false)
+      setGameStarted(false)
+    }, 1300)
+  }
+
   const handleKeepCard = () => {
     setCards(previousCards => {
       return previousCards.map(card => {
         if (card.isSelected) {
           setResult(getResult(card.type))
+          setIsResultShown(true)
           return { ...card, isRevealed: true }
         }
         return card
       })
     })
+    resetGame()
   }
 
   const handleChangeCard = () => {
@@ -65,13 +88,16 @@ export default function Home() {
       return previousCards.map(card => {
         if (!card.isSelected && !card.isRevealed) {
           setResult(getResult(card.type))
+          setIsResultShown(true)
           return { ...card, isSelected: true, isRevealed: true }
         }
         return card
       })
     })
+    resetGame()
   }
 
+  const [isResultShown, setIsResultShown] = useState(false)
   const [result, setResult] = useState(false)
 
   const getResult = choice => {
@@ -80,7 +106,7 @@ export default function Home() {
 
   return (
     <>
-      <Cards isGameStarted={gameStarted} isResultShown={result}>
+      <Cards isGameStarted={gameStarted} isResultShown={isResultShown}>
         {cards.map((card, index) => {
           return (
             <Card
@@ -93,10 +119,10 @@ export default function Home() {
           )
         })}
       </Cards>
-      {gameStarted ? (
+      {gameStarted && !result ? (
         <Decision keepCard={handleKeepCard} changeCard={handleChangeCard} />
       ) : null}
-      {result ? <p style={{ textAlign: 'center' }}>{result}</p> : null}
+      {isResultShown ? <p style={{ textAlign: 'center' }}>{result}</p> : null}
     </>
   )
 }
