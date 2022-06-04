@@ -1,13 +1,21 @@
 import PropTypes from 'prop-types'
 
 const Stats = ({ stats }) => {
+  const {
+    gamesPlayedCounter,
+    goatCounter,
+    carCounter,
+    keepCardCounter,
+    changeCardCounter,
+  } = stats
+
   return (
     <div className="stats">
-      <p>Games Played counter: {stats.gamesPlayedCounter}</p>
-      <p>Goat counter: {stats.goatCounter}</p>
-      <p>Car counter: {stats.carCounter}</p>
-      <p>Keep card counter: {stats.keepCardCounter}</p>
-      <p>Change card counter: {stats.changeCardCounter}</p>
+      <p>Games Played counter: {gamesPlayedCounter}</p>
+      <p>Goat counter: {goatCounter}</p>
+      <p>Car counter: {carCounter}</p>
+      <p>Keep card counter: {keepCardCounter}</p>
+      <p>Change card counter: {changeCardCounter}</p>
     </div>
   )
 }
