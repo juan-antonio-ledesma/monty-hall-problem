@@ -3,9 +3,17 @@ import { useState } from 'react'
 import Cards from '../components/cards/Cards'
 import Card from '../components/cards/Card'
 import Decision from '../components/decision/Decision'
+import Stats from '../components/stats/Stats'
 
 export default function Home() {
   const [gameStarted, setGameStarted] = useState(false)
+  const [stats, setStats] = useState({
+    gamesPlayedCounter: 0,
+    goatCounter: 0,
+    carCounter: 0,
+    keepCardCounter: 0,
+    changeCardCounter: 0,
+  })
 
   const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * max) + min
@@ -53,6 +61,11 @@ export default function Home() {
   }
 
   const resetGame = () => {
+    setStats({
+      ...stats,
+      gamesPlayedCounter: stats.gamesPlayedCounter++,
+    })
+
     setTimeout(() => {
       setCards(previousCards => {
         return previousCards.map(card => {
@@ -81,6 +94,10 @@ export default function Home() {
         return card
       })
     })
+    setStats({
+      ...stats,
+      keepCardCounter: stats.keepCardCounter++,
+    })
     resetGame()
   }
 
@@ -94,6 +111,10 @@ export default function Home() {
         return card
       })
     })
+    setStats({
+      ...stats,
+      changeCardCounter: stats.changeCardCounter++,
+    })
     resetGame()
   }
 
@@ -103,6 +124,18 @@ export default function Home() {
   })
 
   const getResult = choice => {
+    if (choice === 'car') {
+      setStats({
+        ...stats,
+        carCounter: stats.carCounter++,
+      })
+    } else {
+      setStats({
+        ...stats,
+        goatCounter: stats.goatCounter++,
+      })
+    }
+
     return choice === 'car' ? 'YOU WIN' : 'YOU LOSE'
   }
 
@@ -127,6 +160,7 @@ export default function Home() {
       {result.isResultShown ? (
         <p style={{ textAlign: 'center' }}>{result.resultValue}</p>
       ) : null}
+      <Stats stats={stats} />
     </>
   )
 }
