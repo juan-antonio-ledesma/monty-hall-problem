@@ -66,13 +66,13 @@
     opacity: 0.8;
     background: linear-gradient(
           135deg,
-          rgba($primary, 0.5) 25%,
+          rgba($grey-90, 0.5) 25%,
           transparent 25%
         ) -10px 0/ 20px 20px,
-      linear-gradient(225deg, $primary 25%, transparent 25%) -10px 0/ 20px 20px,
-      linear-gradient(315deg, rgba($primary, 0.5) 25%, transparent 25%) 0px 0/ 20px
+      linear-gradient(225deg, $grey-90 25%, transparent 25%) -10px 0/ 20px 20px,
+      linear-gradient(315deg, rgba($grey-90, 0.5) 25%, transparent 25%) 0px 0/ 20px
         20px,
-      linear-gradient(45deg, $primary 25%, $primary-light 25%) 0px 0/ 20px 20px;
+      linear-gradient(45deg, $grey-90 25%, $grey-30 25%) 0px 0/ 20px 20px;
     border-radius: 5px;
   }
 
@@ -85,7 +85,7 @@
     background-color: $white;
     border-radius: 50%;
     font-size: 50px;
-    color: $primary;
+    color: $grey-90;
   }
 
   &-back {
