@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import { useState } from 'react'
 
 import Cards from '../components/cards/Cards'
@@ -141,6 +143,16 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Monty Hall Problem</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <h1>Monty Hall Problem</h1>
       <Cards isGameStarted={gameStarted} isResultShown={result.isResultShown}>
         {cards.map((card, index) => {
           return (
