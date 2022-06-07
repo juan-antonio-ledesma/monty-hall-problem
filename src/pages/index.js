@@ -25,7 +25,7 @@ export default function Home() {
       isSelected: false,
       type: 'goat',
     })
-    cards[randomIntFromInterval(0, 2)] = { type: 'car' }
+    cards[randomIntFromInterval(0, 3)] = { type: 'car' }
 
     return cards
   }
