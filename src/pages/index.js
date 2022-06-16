@@ -2,6 +2,7 @@ import Head from 'next/head'
 
 import { useState } from 'react'
 
+import MainTitle from '../components/main-title/MainTitle'
 import Cards from '../components/cards/Cards'
 import Card from '../components/cards/Card'
 import Decision from '../components/decision/Decision'
@@ -145,14 +146,8 @@ export default function Home() {
     <>
       <Head>
         <title>Monty Hall Problem</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
-          rel="stylesheet"
-        />
       </Head>
-      <h1>Monty Hall Problem</h1>
+      <MainTitle text="Monty Hall Problem" />
       <Cards isGameStarted={gameStarted} isResultShown={result.isResultShown}>
         {cards.map((card, index) => {
           return (

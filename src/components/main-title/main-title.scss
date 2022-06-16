@@ -1,0 +1,34 @@
+.mainTitle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 32px;
+  letter-spacing: 1px;
+
+  &-ornament {
+    display: inline-block;
+    width: 48px;
+    height: 1px;
+    background-color: $grey-70;
+    margin: 0 16px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $grey-70;
+    }
+    &::before {
+      top: -4px;
+    }
+    &::after {
+      top: 4px;
+    }
+  }
+}
