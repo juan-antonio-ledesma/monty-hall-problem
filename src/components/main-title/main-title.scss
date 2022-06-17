@@ -19,8 +19,7 @@
     &::after {
       content: '';
       position: absolute;
-      left: 0;
-      width: 100%;
+      width: calc(100% + 24px);
       height: 1px;
       background-color: $grey-70;
     }
@@ -29,6 +28,20 @@
     }
     &::after {
       top: 4px;
+    }
+
+    &:first-child {
+      &::before,
+      &::after {
+        right: 0;
+      }
+    }
+
+    &:last-child {
+      &::before,
+      &::after {
+        left: 0;
+      }
     }
   }
 }
