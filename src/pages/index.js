@@ -3,10 +3,10 @@ import Head from 'next/head'
 import { useState } from 'react'
 
 import MainTitle from '../components/main-title/MainTitle'
+import Subtitle from '../components/subtitle/Subtitle'
 import Cards from '../components/cards/Cards'
 import Card from '../components/cards/Card'
 import Decision from '../components/decision/Decision'
-import InfoGame from '../components/info-game/InfoGame'
 import Stats from '../components/stats/Stats'
 
 export default function Home() {
@@ -148,7 +148,11 @@ export default function Home() {
       <Head>
         <title>Monty Hall Problem</title>
       </Head>
+
       <MainTitle text="Monty Hall Problem" />
+
+      <Subtitle text={'SELECT A CARD'} isGameStarted={gameStarted} />
+
       <Cards isGameStarted={gameStarted} isResultShown={result.isResultShown}>
         {cards.map((card, index) => {
           return (
@@ -163,17 +167,15 @@ export default function Home() {
         })}
       </Cards>
 
+      {/* <Subtitle
+        text={result.isResultShown ? result.resultValue : 'SELECT A CARD'}
+      /> */}
+
       <Decision
         keepCard={handleKeepCard}
         changeCard={handleChangeCard}
         isVisible={gameStarted && !result.isResultShown}
       />
-
-      {result.isResultShown ? (
-        <InfoGame text={result.resultValue} />
-      ) : (
-        <InfoGame text="SELECT A CARD" />
-      )}
     </>
   )
 }

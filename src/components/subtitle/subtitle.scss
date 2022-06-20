@@ -1,0 +1,55 @@
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+
+  &.is-gameStarted {
+    &::before,
+    &::after {
+      animation-play-state: paused;
+    }
+  }
+
+  &-text {
+    text-align: center;
+    letter-spacing: 6px;
+    color: $black;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: $black;
+    animation-play-state: running;
+  }
+
+  &::before {
+    animation: bullet-left 1.5s infinite alternate ease-out;
+  }
+
+  &::after {
+    animation: bullet-right 1.5s infinite alternate ease-out;
+  }
+
+  @keyframes bullet-left {
+    0% {
+      margin-right: 20px;
+    }
+    100% {
+      margin-right: 40px;
+    }
+  }
+
+  @keyframes bullet-right {
+    0% {
+      margin-left: 13px;
+    }
+    100% {
+      margin-left: 33px;
+    }
+  }
+}
