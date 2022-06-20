@@ -6,6 +6,7 @@ import MainTitle from '../components/main-title/MainTitle'
 import Cards from '../components/cards/Cards'
 import Card from '../components/cards/Card'
 import Decision from '../components/decision/Decision'
+import InfoGame from '../components/info-game/InfoGame'
 import Stats from '../components/stats/Stats'
 
 export default function Home() {
@@ -163,11 +164,11 @@ export default function Home() {
       </Cards>
       {gameStarted && !result.isResultShown ? (
         <Decision keepCard={handleKeepCard} changeCard={handleChangeCard} />
-      ) : null}
-      {result.isResultShown ? (
-        <p style={{ textAlign: 'center' }}>{result.resultValue}</p>
-      ) : null}
-      <Stats stats={stats} />
+      ) : result.isResultShown ? (
+        <InfoGame text={result.resultValue} />
+      ) : (
+        <InfoGame text="SELECT A CARD" />
+      )}
     </>
   )
 }
