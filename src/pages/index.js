@@ -162,9 +162,14 @@ export default function Home() {
           )
         })}
       </Cards>
-      {gameStarted && !result.isResultShown ? (
-        <Decision keepCard={handleKeepCard} changeCard={handleChangeCard} />
-      ) : result.isResultShown ? (
+
+      <Decision
+        keepCard={handleKeepCard}
+        changeCard={handleChangeCard}
+        isVisible={gameStarted && !result.isResultShown}
+      />
+
+      {result.isResultShown ? (
         <InfoGame text={result.resultValue} />
       ) : (
         <InfoGame text="SELECT A CARD" />

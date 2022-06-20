@@ -4,6 +4,14 @@
   justify-content: center;
   gap: 50px;
   margin-top: 50px;
+  opacity: 0;
+  pointer-events: none;
+  transition: $fast-transition;
+
+  &.is-visible {
+    pointer-events: initial;
+    opacity: 1;
+  }
 
   &-button {
     background-color: $grey-80;
