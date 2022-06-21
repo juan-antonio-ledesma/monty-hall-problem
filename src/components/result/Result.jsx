@@ -8,13 +8,17 @@ const Result = ({ finalResult, isVisible }) => {
 
   return (
     <p className={classes} aria-hidden={isVisible ? 'false' : 'true'}>
-      {finalResult === 'win' ? 'YOU WIN' : 'YOU LOSE'}
+      {finalResult === 'win' ? (
+        <span className="result-textWin">YOU WIN</span>
+      ) : (
+        <span className="result-textLose">YOU LOSE</span>
+      )}
     </p>
   )
 }
 
 Result.propTypes = {
-  text: PropTypes.string,
+  finalResult: PropTypes.string,
   isVisible: PropTypes.bool,
 }
 
