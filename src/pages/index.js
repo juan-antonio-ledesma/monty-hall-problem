@@ -7,6 +7,7 @@ import Subtitle from '../components/subtitle/Subtitle'
 import Cards from '../components/cards/Cards'
 import Card from '../components/cards/Card'
 import Decision from '../components/decision/Decision'
+import Result from '../components/result/Result'
 import Stats from '../components/stats/Stats'
 
 export default function Home() {
@@ -80,9 +81,11 @@ export default function Home() {
 
     setTimeout(() => {
       setCards(resetCards)
-      setResult({
-        resultValue: '',
-        isResultShown: false,
+      setResult(previousResult => {
+        return {
+          resultValue: previousResult.resultValue,
+          isResultShown: false,
+        }
       })
       setGameStarted(false)
     }, 1400)
@@ -140,7 +143,7 @@ export default function Home() {
       })
     }
 
-    return choice === 'car' ? 'YOU WIN' : 'YOU LOSE'
+    return choice === 'car' ? 'win' : 'lose'
   }
 
   return (
@@ -167,9 +170,10 @@ export default function Home() {
         })}
       </Cards>
 
-      {/* <Subtitle
-        text={result.isResultShown ? result.resultValue : 'SELECT A CARD'}
-      /> */}
+      <Result
+        finalResult={result.resultValue}
+        isVisible={result.isResultShown}
+      />
 
       <Decision
         keepCard={handleKeepCard}

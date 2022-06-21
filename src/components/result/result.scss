@@ -1,0 +1,15 @@
+.result {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: $fast-transition;
+
+  &.is-visible {
+    pointer-events: initial;
+    opacity: 1;
+  }
+}
