@@ -99,17 +99,17 @@ export default function Home() {
 
           setResult({ resultValue: result, isResultShown: true })
 
-          if (result === 'win') {
-            setStats({
-              ...stats,
-              keepCardCarCounter: stats.keepCardCarCounter++,
-            })
-          } else {
-            setStats({
-              ...stats,
-              keepCardGoatCounter: stats.keepCardGoatCounter++,
-            })
-          }
+          setStats(previousStats => {
+            return result === 'win'
+              ? {
+                  ...previousStats,
+                  keepCardCarCounter: previousStats.keepCardCarCounter++,
+                }
+              : {
+                  ...previousStats,
+                  keepCardGoatCounter: previousStats.keepCardGoatCounter++,
+                }
+          })
 
           return { ...card, isRevealed: true }
         }
@@ -128,17 +128,17 @@ export default function Home() {
 
           setResult({ resultValue: result, isResultShown: true })
 
-          if (result === 'win') {
-            setStats({
-              ...stats,
-              changeCardCarCounter: stats.changeCardCarCounter++,
-            })
-          } else {
-            setStats({
-              ...stats,
-              changeCardGoatCounter: stats.changeCardGoatCounter++,
-            })
-          }
+          setStats(previousStats => {
+            return result === 'win'
+              ? {
+                  ...previousStats,
+                  changeCardCarCounter: previousStats.changeCardCarCounter++,
+                }
+              : {
+                  ...previousStats,
+                  changeCardGoatCounter: previousStats.changeCardGoatCounter++,
+                }
+          })
 
           return { ...card, isSelected: true, isRevealed: true }
         }
