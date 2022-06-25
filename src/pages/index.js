@@ -14,10 +14,10 @@ export default function Home() {
   const [gameStarted, setGameStarted] = useState(false)
   const [stats, setStats] = useState({
     gamesPlayedCounter: 0,
-    goatCounter: 0,
-    carCounter: 0,
-    keepCardCounter: 0,
-    changeCardCounter: 0,
+    keepCardCarCounter: 0,
+    keepCardGoatCounter: 0,
+    changeCardCarCounter: 0,
+    changeCardGoatCounter: 0,
   })
 
   const randomIntFromInterval = (min, max) => {
@@ -95,16 +95,28 @@ export default function Home() {
     setCards(previousCards => {
       return previousCards.map(card => {
         if (card.isSelected) {
-          setResult({ resultValue: getResult(card.type), isResultShown: true })
+          const result = getResult(card.type)
+
+          setResult({ resultValue: result, isResultShown: true })
+
+          if (result === 'win') {
+            setStats({
+              ...stats,
+              keepCardCarCounter: stats.keepCardCarCounter++,
+            })
+          } else {
+            setStats({
+              ...stats,
+              keepCardGoatCounter: stats.keepCardGoatCounter++,
+            })
+          }
+
           return { ...card, isRevealed: true }
         }
         return card
       })
     })
-    setStats({
-      ...stats,
-      keepCardCounter: stats.keepCardCounter++,
-    })
+
     resetGame()
   }
 
@@ -112,16 +124,28 @@ export default function Home() {
     setCards(previousCards => {
       return previousCards.map(card => {
         if (!card.isSelected && !card.isRevealed) {
-          setResult({ resultValue: getResult(card.type), isResultShown: true })
+          const result = getResult(card.type)
+
+          setResult({ resultValue: result, isResultShown: true })
+
+          if (result === 'win') {
+            setStats({
+              ...stats,
+              changeCardCarCounter: stats.changeCardCarCounter++,
+            })
+          } else {
+            setStats({
+              ...stats,
+              changeCardGoatCounter: stats.changeCardGoatCounter++,
+            })
+          }
+
           return { ...card, isSelected: true, isRevealed: true }
         }
         return card
       })
     })
-    setStats({
-      ...stats,
-      changeCardCounter: stats.changeCardCounter++,
-    })
+
     resetGame()
   }
 
@@ -180,6 +204,8 @@ export default function Home() {
         changeCard={handleChangeCard}
         isVisible={gameStarted && !result.isResultShown}
       />
+
+      <Stats stats={stats} />
     </>
   )
 }
