@@ -154,21 +154,7 @@ export default function Home() {
     isResultShown: false,
   })
 
-  const getResult = choice => {
-    if (choice === 'car') {
-      setStats({
-        ...stats,
-        carCounter: stats.carCounter++,
-      })
-    } else {
-      setStats({
-        ...stats,
-        goatCounter: stats.goatCounter++,
-      })
-    }
-
-    return choice === 'car' ? 'win' : 'lose'
-  }
+  const getResult = choice => (choice === 'car' ? 'win' : 'lose')
 
   return (
     <>
