@@ -164,7 +164,7 @@ export default function Home() {
 
       <MainTitle text="Monty Hall Problem" />
 
-      <Subtitle text={'SELECT A CARD'} isGameStarted={gameStarted} />
+      <Subtitle text="SELECT A CARD" isGameStarted={gameStarted} />
 
       <Cards isGameStarted={gameStarted} isResultShown={result.isResultShown}>
         {cards.map((card, index) => {

@@ -5,4 +5,14 @@
   position: absolute;
   bottom: 24px;
   right: 24px;
+
+  &-bar {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    background-color: $black;
+    color: white;
+    margin: 8px 0;
+  }
 }
