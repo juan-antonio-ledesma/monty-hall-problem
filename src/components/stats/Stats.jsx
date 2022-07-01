@@ -10,6 +10,7 @@ const Stats = ({ stats }) => {
   } = stats
 
   const getPercentage = (amount, total) => {
+    if (amount === 0 && total === 0) return '0.00%'
     return `${((amount * 100) / total).toFixed(2)}%`
   }
 
