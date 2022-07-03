@@ -6,13 +6,17 @@
   bottom: 24px;
   right: 24px;
 
-  &-bar {
-    height: 24px;
+  &-barContainer {
     display: flex;
     align-items: center;
-    padding-left: 16px;
+  }
+
+  &-bar {
+    min-width: 1px;
+    height: 24px;
     background-color: $black;
-    color: white;
-    margin: 8px 0;
+    color: $white;
+    margin: 8px 8px 8px 0;
+    transition: $fast-transition;
   }
 }
