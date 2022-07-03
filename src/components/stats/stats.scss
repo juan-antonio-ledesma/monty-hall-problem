@@ -5,6 +5,31 @@
   position: absolute;
   bottom: 24px;
   right: 24px;
+  width: 100%;
+  max-width: 220px;
+  font-size: 12px;
+
+  &-mainTitle {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $grey-30;
+    padding: 0 8px;
+    letter-spacing: 2px;
+    font-size: 14px;
+  }
+
+  &-secondaryTitle {
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+
+    &.has-borderbottom {
+      margin-top: 12px;
+      padding-bottom: 4px;
+      border-bottom: solid 1px;
+    }
+  }
 
   &-barContainer {
     display: flex;
@@ -12,11 +37,10 @@
   }
 
   &-bar {
-    min-width: 1px;
-    height: 24px;
+    height: 16px;
     background-color: $black;
     color: $white;
-    margin: 8px 8px 8px 0;
+    margin: 8px 0;
     transition: $fast-transition;
   }
 }

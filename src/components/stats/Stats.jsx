@@ -33,13 +33,11 @@ const Stats = ({ stats }) => {
 
   return (
     <div className="stats">
-      <p>Games Played Counter: {gamesPlayedCounter}</p>
-      {/* <p>Keep Card Car Counter: {keepCardCarCounter}</p>
-      <p>Keep Card Goat Counter: {keepCardGoatCounter}</p>
-      <p>Change Card Car Counter: {changeCardCarCounter}</p>
-      <p>Change Card Goat Counter: {changeCardGoatCounter}</p> */}
+      <p className="stats-mainTitle">STATS</p>
 
-      <p>Keep card</p>
+      <p className="stats-secondaryTitle">Games played: {gamesPlayedCounter}</p>
+
+      <p className="stats-secondaryTitle has-borderbottom">Keep card</p>
       <div className="stats-barContainer">
         <div
           className="stats-bar"
@@ -58,7 +56,7 @@ const Stats = ({ stats }) => {
         {percentageKeepCardGoat} | {keepCardGoatCounter}
       </div>
 
-      <p>Change card</p>
+      <p className="stats-secondaryTitle has-borderbottom">Change card</p>
       <div className="stats-barContainer">
         <div
           className="stats-bar"
