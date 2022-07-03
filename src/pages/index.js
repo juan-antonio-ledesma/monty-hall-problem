@@ -110,14 +110,13 @@ export default function Home() {
                   keepCardGoatCounter: previousStats.keepCardGoatCounter++,
                 }
           })
+          resetGame()
 
           return { ...card, isRevealed: true }
         }
         return card
       })
     })
-
-    resetGame()
   }
 
   const handleChangeCard = () => {
@@ -139,14 +138,13 @@ export default function Home() {
                   changeCardGoatCounter: previousStats.changeCardGoatCounter++,
                 }
           })
+          resetGame()
 
           return { ...card, isSelected: true, isRevealed: true }
         }
         return card
       })
     })
-
-    resetGame()
   }
 
   const [result, setResult] = useState({
