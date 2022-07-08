@@ -6,12 +6,12 @@
   bottom: 24px;
   right: 24px;
   width: 100%;
-  max-width: 220px;
+  max-width: 264px;
   font-size: 12px;
 
   &-mainTitle {
     position: absolute;
-    top: -24px;
+    top: -23px;
     left: 50%;
     transform: translateX(-50%);
     background-color: $grey-30;
@@ -42,22 +42,6 @@
   &-secondaryTitle {
     letter-spacing: 1px;
     margin-bottom: 4px;
-    position: relative;
-
-    &.has-borderbottom {
-      margin-top: 12px;
-      line-height: 1.8;
-
-      &::after {
-        content: '';
-        width: calc(100% - 8px);
-        height: 1px;
-        border-bottom: dashed 1px $black;
-        position: absolute;
-        bottom: 0;
-        left: 8px;
-      }
-    }
 
     &::before {
       content: '';
@@ -72,17 +56,24 @@
     }
   }
 
-  &-barContainer {
-    display: flex;
-    align-items: center;
-    padding-left: 8px;
+  &-barWrapper {
+    width: calc(100% - 8px);
+    height: 100%;
+    background-color: rgba($white, 0.5);
+    margin-left: 8px;
+    border-radius: 3px;
   }
 
   &-bar {
-    height: 16px;
-    background-color: $black;
-    color: $white;
+    min-width: 80px;
+    height: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $white;
     margin: 8px 0;
+    padding: 0 8px;
     transition: $fast-transition;
+    border-radius: 3px;
   }
 }

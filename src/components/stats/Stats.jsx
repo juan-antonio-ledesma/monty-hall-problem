@@ -37,42 +37,40 @@ const Stats = ({ stats }) => {
 
       <p className="stats-secondaryTitle">Games played: {gamesPlayedCounter}</p>
 
-      <p className="stats-secondaryTitle has-borderbottom">Keep card</p>
-      <div className="stats-barContainer">
-        <div
-          className="stats-bar"
-          style={{ width: percentageKeepCardCar }}
-          aria-hidden="true"
-        />
-        {percentageKeepCardCar} | {keepCardCarCounter}
+      <p className="stats-secondaryTitle">Keep card</p>
+
+      <div className="stats-barWrapper">
+        <div className="stats-bar" style={{ width: percentageKeepCardCar }}>
+          <div className="stats-counterWrapper">Cars: {keepCardCarCounter}</div>
+          <div className="stats-percentage">{percentageKeepCardCar}</div>
+        </div>
       </div>
 
-      <div className="stats-barContainer">
-        <div
-          className="stats-bar"
-          style={{ width: percentageKeepCardGoat }}
-          aria-hidden="true"
-        />
-        {percentageKeepCardGoat} | {keepCardGoatCounter}
+      <div className="stats-barWrapper">
+        <div className="stats-bar" style={{ width: percentageKeepCardGoat }}>
+          <div className="stats-counterWrapper">
+            Goats: {keepCardGoatCounter}
+          </div>
+          <div className="stats-percentage">{percentageKeepCardGoat}</div>
+        </div>
       </div>
 
-      <p className="stats-secondaryTitle has-borderbottom">Change card</p>
-      <div className="stats-barContainer">
-        <div
-          className="stats-bar"
-          style={{ width: percentageChangeCardCar }}
-          aria-hidden="true"
-        />
-        {percentageChangeCardCar} | {changeCardCarCounter}
+      <p className="stats-secondaryTitle">Change card</p>
+
+      <div className="stats-barWrapper">
+        <div className="stats-bar" style={{ width: percentageChangeCardCar }}>
+          <div className="stats-counterWrapper">
+            Cars: {changeCardCarCounter}
+          </div>
+          <div className="stats-percentage">{percentageChangeCardCar}</div>
+        </div>
       </div>
 
-      <div className="stats-barContainer">
-        <div
-          className="stats-bar"
-          style={{ width: percentageChangeCardGoat }}
-          aria-hidden="true"
-        />
-        {percentageChangeCardGoat} | {changeCardGoatCounter}
+      <div className="stats-barWrapper">
+        <div className="stats-bar" style={{ width: percentageChangeCardGoat }}>
+          <div>Goats: {changeCardGoatCounter}</div>
+          <div>{percentageChangeCardGoat}</div>
+        </div>
       </div>
     </div>
   )
