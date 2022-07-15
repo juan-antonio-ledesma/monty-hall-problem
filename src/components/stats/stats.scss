@@ -2,12 +2,11 @@
   padding: 16px;
   border: solid 1px $black;
   border-radius: 10px;
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  width: 100%;
   max-width: 264px;
   font-size: 12px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 32px;
 
   &-mainTitle {
     position: absolute;

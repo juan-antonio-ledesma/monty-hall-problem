@@ -160,36 +160,39 @@ export default function Home() {
         <title>Monty Hall Problem</title>
       </Head>
 
-      <MainTitle text="Monty Hall Problem" />
+      <header>
+        <MainTitle text="Monty Hall Problem" />
+      </header>
+      <main>
+        <Subtitle text="SELECT A CARD" isGameStarted={gameStarted} />
 
-      <Subtitle text="SELECT A CARD" isGameStarted={gameStarted} />
+        <Cards isGameStarted={gameStarted} isResultShown={result.isResultShown}>
+          {cards.map((card, index) => {
+            return (
+              <Card
+                key={`card-${index}`}
+                type={card.type}
+                isSelected={card.isSelected}
+                isRevealed={card.isRevealed}
+                onClick={() => handleSelectCard(index)}
+              />
+            )
+          })}
+        </Cards>
 
-      <Cards isGameStarted={gameStarted} isResultShown={result.isResultShown}>
-        {cards.map((card, index) => {
-          return (
-            <Card
-              key={`card-${index}`}
-              type={card.type}
-              isSelected={card.isSelected}
-              isRevealed={card.isRevealed}
-              onClick={() => handleSelectCard(index)}
-            />
-          )
-        })}
-      </Cards>
+        <Result
+          finalResult={result.resultValue}
+          isVisible={result.isResultShown}
+        />
 
-      <Result
-        finalResult={result.resultValue}
-        isVisible={result.isResultShown}
-      />
+        <Decision
+          keepCard={handleKeepCard}
+          changeCard={handleChangeCard}
+          isVisible={gameStarted && !result.isResultShown}
+        />
 
-      <Decision
-        keepCard={handleKeepCard}
-        changeCard={handleChangeCard}
-        isVisible={gameStarted && !result.isResultShown}
-      />
-
-      <Stats stats={stats} />
+        <Stats stats={stats} />
+      </main>
     </>
   )
 }
