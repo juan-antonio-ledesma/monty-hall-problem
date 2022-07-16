@@ -8,10 +8,18 @@ const Decision = ({ changeCard, keepCard, isVisible }) => {
 
   return (
     <div className={classes} aria-hidden={isVisible ? 'false' : 'true'}>
-      <button className="decision-button" onClick={keepCard}>
+      <button
+        className="decision-button"
+        onClick={keepCard}
+        tabIndex={isVisible ? 0 : -1}
+      >
         Keep Card
       </button>
-      <button className="decision-button" onClick={changeCard}>
+      <button
+        className="decision-button"
+        onClick={changeCard}
+        tabIndex={isVisible ? 0 : -1}
+      >
         Change Card
       </button>
     </div>
