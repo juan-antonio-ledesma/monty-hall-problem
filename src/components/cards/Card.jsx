@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image'
 
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -19,13 +19,11 @@ const Card = ({ type, onClick, isSelected, isRevealed }) => {
           <div className="card-interrogationBadge">?</div>
         </div>
         <div className="card-back">
-          <img
-            src={type === 'goat' ? goatImage.src : carImage.src}
-            alt={type === 'goat' ? 'Goat' : 'Car'}
-            width={180}
-            height={180}
-            loading="lazy"
-            className="card-image"
+          <Image
+            src={type === 'goat' ? goatImage : carImage}
+            alt="hola"
+            width={70}
+            height={70}
           />
         </div>
       </div>
