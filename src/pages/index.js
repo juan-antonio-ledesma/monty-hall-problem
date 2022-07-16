@@ -71,6 +71,8 @@ export default function Home() {
       gamesPlayedCounter: stats.gamesPlayedCounter++,
     })
 
+    setStats(stats)
+
     setTimeout(() => {
       setCards(previousCards => {
         return previousCards.map(card => {
