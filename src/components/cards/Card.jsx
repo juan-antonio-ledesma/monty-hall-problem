@@ -1,10 +1,10 @@
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import carImage from '../../public/images/car.png'
-import goatImage from '../../public/images/goat.png'
+import carImage from '../../public/images/car.jpg'
+import goatImage from '../../public/images/goat.jpg'
 
 const Card = ({ type, onClick, isSelected, isRevealed }) => {
   const classes = cx('card', {
@@ -19,11 +19,13 @@ const Card = ({ type, onClick, isSelected, isRevealed }) => {
           <div className="card-interrogationBadge">?</div>
         </div>
         <div className="card-back">
-          <Image
-            src={type === 'goat' ? goatImage : carImage}
+          <img
+            src={type === 'goat' ? goatImage.src : carImage.src}
             alt={type === 'goat' ? 'Goat' : 'Car'}
-            width={70}
-            height={70}
+            width={180}
+            height={180}
+            loading="lazy"
+            className="card-image"
           />
         </div>
       </div>
