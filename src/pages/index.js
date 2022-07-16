@@ -158,6 +158,7 @@ export default function Home() {
     <>
       <Head>
         <title>Monty Hall Problem</title>
+        <meta name="description" content="Try to get the car!"></meta>
       </Head>
 
       <header>
