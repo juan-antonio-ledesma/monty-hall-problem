@@ -163,6 +163,7 @@ export default function Home() {
       <header>
         <MainTitle text="Monty Hall Problem" />
       </header>
+
       <main>
         <Subtitle text="SELECT A CARD" isGameStarted={gameStarted} />
 

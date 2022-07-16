@@ -21,7 +21,7 @@ const Card = ({ type, onClick, isSelected, isRevealed }) => {
         <div className="card-back">
           <Image
             src={type === 'goat' ? goatImage : carImage}
-            alt="hola"
+            alt={type === 'goat' ? 'Goat' : 'Car'}
             width={70}
             height={70}
           />
