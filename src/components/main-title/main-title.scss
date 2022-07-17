@@ -4,31 +4,31 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 28px;
-  letter-spacing: 1px;
-  margin: 8px 0 0;
+  font-size: 1.75rem;
+  letter-spacing: 0.0625rem;
+  margin: 0.5rem 0 0;
 
   &-ornament {
     display: inline-block;
-    width: 32px;
-    height: 1px;
+    width: 2rem;
+    height: 0.0625rem;
     background-color: $grey-70;
-    margin: 0 16px;
+    margin: 0 1rem;
     position: relative;
 
     &::before,
     &::after {
       content: '';
       position: absolute;
-      width: calc(100% + 16px);
-      height: 1px;
+      width: calc(100% + 1rem);
+      height: 0.0625rem;
       background-color: $grey-70;
     }
     &::before {
-      top: -4px;
+      top: -0.25rem;
     }
     &::after {
-      top: 4px;
+      top: 0.25rem;
     }
 
     &:first-child {
@@ -47,14 +47,14 @@
   }
 
   @media (min-width: $mobile) {
-    margin: 16px 0 0;
-    font-size: 32px;
+    margin: 1rem 0 0;
+    font-size: 2rem;
 
     &-ornament {
-      width: 48px;
+      width: 3rem;
       &::before,
       &::after {
-        width: calc(100% + 24px);
+        width: calc(100% + 1.5rem);
       }
     }
   }

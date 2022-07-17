@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 16px;
-  font-size: 14px;
+  margin-top: 1rem;
+  font-size: 0.875rem;
 
   &.is-gameStarted {
     &::before,
@@ -14,15 +14,15 @@
 
   &-text {
     text-align: center;
-    letter-spacing: 6px;
+    letter-spacing: 0.375rem;
     color: $black;
   }
 
   &::before,
   &::after {
     content: '';
-    width: 3px;
-    height: 3px;
+    width: 0.1875rem;
+    height: 0.1875rem;
     border-radius: 50%;
     background-color: $black;
     animation-play-state: running;
@@ -38,23 +38,23 @@
 
   @keyframes bullet-left {
     0% {
-      margin-right: 20px;
+      margin-right: 1.25rem;
     }
     100% {
-      margin-right: 40px;
+      margin-right: 2.5rem;
     }
   }
 
   @keyframes bullet-right {
     0% {
-      margin-left: 13px;
+      margin-left: 0.8125rem;
     }
     100% {
-      margin-left: 33px;
+      margin-left: 2.0625rem;
     }
   }
 
   @media (min-width: $mobile) {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }

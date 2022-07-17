@@ -2,8 +2,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 24px;
-  margin-top: 16px;
+  gap: 1.5rem;
+  margin-top: 1rem;
   opacity: 0;
   pointer-events: none;
   transition: $fast-transition;
@@ -16,28 +16,30 @@
   &-button {
     background-color: $grey-80;
     color: $white;
-    height: 40px;
-    min-width: 130px;
-    border-radius: 4px;
+    height: 2.5rem;
+    min-width: 8.125rem;
+    border-radius: 0.25rem;
     text-transform: uppercase;
     font-weight: bold;
-    letter-spacing: 0.5px;
-    box-shadow: 0px 3px 1px -2px rgba($black, 0.2),
-      0px 2px 2px 0px rgba($black, 0.14), 0px 1px 5px 0px rgba($black, 0.12);
+    letter-spacing: 0.0313rem;
+    box-shadow: 0 0.1875rem 0.0625rem -0.125rem rgba($black, 0.2),
+      0rem 0.125rem 0.125rem 0 rgba($black, 0.14),
+      0 0.0625rem 0.3125rem 0rem rgba($black, 0.12);
     transition: $fast-transition;
 
     &:hover {
       background-color: $black;
-      box-shadow: 0px 2px 4px -1px rgba($black, 0.2),
-        0px 4px 5px 0px rgb($black, 0.14), 0px 1px 10px 0px rgb($black, 0.12);
+      box-shadow: 0 0.125rem 0.25rem -0.0625rem rgba($black, 0.2),
+        0 0.25rem 0.3125rem 0rem rgb($black, 0.14),
+        0 0.0625rem 0.625rem 0rem rgb($black, 0.12);
     }
   }
 
   @media (min-width: $mobile) {
-    gap: 40px;
+    gap: 2.5rem;
 
     &-button {
-      min-width: 140px;
+      min-width: 8.75rem;
     }
   }
 }
