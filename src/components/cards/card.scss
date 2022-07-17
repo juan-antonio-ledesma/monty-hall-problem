@@ -69,7 +69,8 @@
           rgba($grey-90, 0.5) 25%,
           transparent 25%
         ) -0.625rem 0/ 1.25rem 1.25rem,
-      linear-gradient(225deg, $grey-90 25%, transparent 25%) -0.625rem 0/ 1.25rem 1.25rem,
+      linear-gradient(225deg, $grey-90 25%, transparent 25%) -0.625rem 0/
+        1.25rem 1.25rem,
       linear-gradient(315deg, rgba($grey-90, 0.5) 25%, transparent 25%) 0 0/ 1.25rem
         1.25rem,
       linear-gradient(45deg, $grey-90 25%, $grey-30 25%) 0 0/ 1.25rem 1.25rem;
@@ -92,6 +93,7 @@
     transform: rotateY(-180deg);
     z-index: 2;
     background-color: $white;
+    padding: 0.5rem;
   }
 
   @media (min-width: $mobile) {
@@ -112,6 +114,13 @@
       width: 4.375rem;
       height: 4.375rem;
       font-size: 3.125rem;
+    }
+
+    &-back {
+      transform: rotateY(-180deg);
+      z-index: 2;
+      background-color: $white;
+      padding: 1rem;
     }
   }
 }

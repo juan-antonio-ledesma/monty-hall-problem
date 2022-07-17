@@ -3,8 +3,6 @@ import Image from 'next/image'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { useMediaQuery } from 'react-responsive'
-
 import carImage from '../../public/images/car.jpg'
 import goatImage from '../../public/images/goat.jpg'
 
@@ -13,12 +11,6 @@ const Card = ({ type, onClick, isSelected, isRevealed }) => {
     'is-selected': isSelected,
     'is-revealed': isRevealed,
   })
-
-  const isLapAndUp = useMediaQuery({
-    query: 'only screen and (min-width: 600px)',
-  })
-
-  const imageSize = isLapAndUp ? 70 : 54
 
   return (
     <div className={classes} onClick={onClick}>
@@ -30,8 +22,6 @@ const Card = ({ type, onClick, isSelected, isRevealed }) => {
           <Image
             src={type === 'goat' ? goatImage : carImage}
             alt={type === 'goat' ? 'Goat' : 'Car'}
-            width={imageSize}
-            height={imageSize}
           />
         </div>
       </div>
