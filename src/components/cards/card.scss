@@ -94,12 +94,6 @@
     background-color: $white;
   }
 
-  &-image {
-    width: 100%;
-    max-width: 70px;
-    height: auto;
-  }
-
   @media (min-width: $mobile) {
     width: 130px;
     height: 200px;
