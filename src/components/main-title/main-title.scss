@@ -4,13 +4,13 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 32px;
+  font-size: 28px;
   letter-spacing: 1px;
-  margin: 24px 0 0;
+  margin: 8px 0 0;
 
   &-ornament {
     display: inline-block;
-    width: 48px;
+    width: 32px;
     height: 1px;
     background-color: $grey-70;
     margin: 0 16px;
@@ -20,7 +20,7 @@
     &::after {
       content: '';
       position: absolute;
-      width: calc(100% + 24px);
+      width: calc(100% + 16px);
       height: 1px;
       background-color: $grey-70;
     }
@@ -42,6 +42,19 @@
       &::before,
       &::after {
         left: 0;
+      }
+    }
+  }
+
+  @media (min-width: $mobile) {
+    margin: 16px 0 0;
+    font-size: 32px;
+
+    &-ornament {
+      width: 48px;
+      &::before,
+      &::after {
+        width: calc(100% + 24px);
       }
     }
   }
