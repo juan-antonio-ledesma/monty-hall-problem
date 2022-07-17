@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 16px;
+  font-size: 14px;
 
   &.is-gameStarted {
     &::before,
@@ -51,5 +52,9 @@
     100% {
       margin-left: 33px;
     }
+  }
+
+  @media (min-width: $mobile) {
+    font-size: 16px;
   }
 }
